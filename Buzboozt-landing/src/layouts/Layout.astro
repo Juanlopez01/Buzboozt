@@ -1,0 +1,71 @@
+---
+import Header from "../components/Header.jsx";
+import Header2 from "../components/Header2.astro";
+import Footer from "../components/Footer.astro";
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Boost your business and multiply your result with us."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/verdeSF_1.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Buzboozt</title>
+  </head>
+  <body class="flex flex-col mx-auto w-full min-h-screen bg-blue-50">
+    <header>
+      <Header2 />
+    </header>
+    <main class="flex flex-auto flex-col max-w-full">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+<style is:global>
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+    scroll-behavior: smooth;
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background: #13151a;
+    background-size: 224px;
+  }
+  .header {
+    background: rgba(19, 21, 26, 0.25);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+</style>
